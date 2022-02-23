@@ -1,18 +1,14 @@
 'use strict';
 
-console.log('proof of life');
+console.log('I am Alive!!');
 
-const express = require('express');
-
-const app = express();
 require('dotenv').config();
+const express = require('express');
+const app = express();
 let data = require('./data/weather.json');
-
 const cors = require('cors');
-app.use(cors());
-
 const PORT = process.env.PORT || 3002;
-
+app.use(cors());
 
 app.get('/weather', (request, response) =>{
   try{
@@ -21,11 +17,18 @@ app.get('/weather', (request, response) =>{
   const weatherArr = cityObj.data.map(day => new Forecast(day));
   response.send(weatherArr);
   } catch(error){
-    throw new Error
+    throw new Error('Weather currently unavailable')
 
   }
+});
+
+app.get('*',(request, response) =>{
+  response.send('ERROR')
 })
 
+app.use((error, request, response, next) =>{
+  response.status(500).send(error.message)
+})
 
 class Forecast {
   constructor(day){
@@ -34,12 +37,8 @@ class Forecast {
   }
 }
 
-app.get('*',(request, response) =>{
-  response.send('ERROR')
-})
-
-// app.use((error, request, response, next) =>{
-//   response.status(500).send(error.message)
-// })
-
 app.listen(PORT,() => console.log(`listen test on port ${PORT}`))
+
+
+
+
