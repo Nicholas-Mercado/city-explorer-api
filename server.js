@@ -15,15 +15,17 @@ const PORT = process.env.PORT || 3002;
 
 
 app.get('/weather', (request, response) =>{
+  try{
   let searchQuery = request.query.searchQuery;
-  // console.log(searchQuery);
-  
   let  cityObj = data.find(city => city.city_name === searchQuery);
-
   const weatherArr = cityObj.data.map(day => new Forecast(day));
-  console.log(cityObj);
   response.send(weatherArr);
+  } catch(error){
+    throw new Error
+
+  }
 })
+
 
 class Forecast {
   constructor(day){
@@ -31,8 +33,13 @@ class Forecast {
     this.description = day.weather.description
   }
 }
+
 app.get('*',(request, response) =>{
   response.send('ERROR')
 })
+
+// app.use((error, request, response, next) =>{
+//   response.status(500).send(error.message)
+// })
 
 app.listen(PORT,() => console.log(`listen test on port ${PORT}`))
