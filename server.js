@@ -34,7 +34,7 @@ app.get('/movies', async(request, response) => {
   let searchQuery = request.query.searchQuery;
   console.log(searchQuery);
   let url = `https://api.themoviedb.org/3/search/movie/?api_key=${process.env.MOVIE_API_KEY}&query=${searchQuery}`;
-  console.log(url);
+  // console.log(url);
 
   let MovieObject = await axios.get(url);
 
