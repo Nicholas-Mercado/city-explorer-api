@@ -1,6 +1,6 @@
 # city-explorer-api
 
-[Deployed Site](https://docs.npmjs.com/)
+[Deployed Site]([city-explorer-4.netlify.app](https://city-explorer-4.netlify.app/))
 
 **Author**: Nicholas Mercado
 
@@ -48,6 +48,16 @@ Finish time:900
 
 Actual time needed to complete: 30
 
+Name of feature: Weather (live)
+
+Estimate of time needed to complete: 3hr
+
+Start time: 830
+
+Finish time:900
+
+Actual time needed to complete: 30
+
 ## Credit and Collaborations
 
 [Node JS Docs](https://docs.npmjs.com/)
@@ -63,4 +73,8 @@ Brady Camp
 
 Matt Rangel
 
-![WRRC](/lab07_WRRC.JPG)
+![WRRC Lab 06](/WRRC_lab06.JPG)
+
+![WRRC Lab 07](/lab07_WRRC.JPG)
+
+![WRRC Lab 08 ](/WRRC_lab_08.JPG)
