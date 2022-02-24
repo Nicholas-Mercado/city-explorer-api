@@ -8,16 +8,23 @@ const app = express();
 let data = require('./data/weather.json');
 const cors = require('cors');
 const PORT = process.env.PORT || 3002;
+const axios = require('axios');
 app.use(cors());
 
-app.get('/weather', (request, response) =>{
+app.get('/weather', async (request, response) =>{
   try{
-  let searchQuery = request.query.searchQuery;
-  let  cityObj = data.find(city => city.city_name === searchQuery);
-  const weatherArr = cityObj.data.map(day => new Forecast(day));
+    let lat =request.query.lat;  
+    let lon =request.query.lon;
+     let url = `https://api.weatherbit.io/v2.0/forecast/daily?key=${process.env.WEATHER_API_KEY}&units=I&days=3&lat=${lat}&lon=${lon}`;
+    console.log("test:", url);
+  let weatherArray = await axios.get(url);
+  //  console.log(weatherArray);
+  
+  const weatherArr = weatherArray.data.data.map(day => new Forecast(day));
+  console.log(lat,lon,weatherArr);
   response.send(weatherArr);
   } catch(error){
-    throw new Error('Weather currently unavailable')
+    response.status(500).send('Weather currently unavailable')
 
   }
 });
