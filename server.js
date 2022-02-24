@@ -29,6 +29,21 @@ app.get('/weather', async (request, response) =>{
   }
 });
 
+app.get('/movies', async(request, response) => {
+  // Not sure if this is right city or searchqueary
+  let city = request.query.city;
+
+  let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${city}`;
+  
+  let MovieObject = await axios.get(url);
+
+  let movieData = MovieObject.data.results.map(movie => Movies(movie.title,movie.release_date, movie.overview));
+  response.send(movieData);
+}
+);
+
+
+
 app.get('*',(request, response) =>{
   response.send('ERROR')
 })
@@ -45,6 +60,14 @@ class Forecast {
     this.low = day.low_temp;
     this.high = day.high_temp
 
+  }
+}
+
+class Movies {
+  constructor(title, realease_date, overview) {
+    this.title = title;
+    this.release_date = release_date;
+    this.overview = overview;
   }
 }
 
