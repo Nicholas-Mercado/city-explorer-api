@@ -16,7 +16,7 @@ app.get('/weather', async (request, response) =>{
     let lat =request.query.lat;  
     let lon =request.query.lon;
     let url = `https://api.weatherbit.io/v2.0/forecast/daily?key=${process.env.WEATHER_API_KEY}&units=I&days=5&lat=${lat}&lon=${lon}`;
-    // console.log("test:", url);
+    console.log("test:", url);
   let weatherArray = await axios.get(url);
   //  console.log(weatherArray);
   
@@ -31,13 +31,14 @@ app.get('/weather', async (request, response) =>{
 
 app.get('/movies', async(request, response) => {
   // Not sure if this is right city or searchqueary
-  let city = request.query.city;
+  let searchQuery = request.query.searchQuery;
+  console.log(searchQuery);
+  let url = `https://api.themoviedb.org/3/search/movie/?api_key=${process.env.MOVIE_API_KEY}&query=${searchQuery}`;
+  console.log(url);
 
-  let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${city}`;
-  
   let MovieObject = await axios.get(url);
 
-  let movieData = MovieObject.data.results.map(movie => Movies(movie.title,movie.release_date, movie.overview));
+  let movieData = MovieObject.data.results.map(movie => new Movies(movie.title,movie.release_date, movie.overview));
   response.send(movieData);
 }
 );
@@ -64,7 +65,7 @@ class Forecast {
 }
 
 class Movies {
-  constructor(title, realease_date, overview) {
+  constructor(title, release_date, overview) {
     this.title = title;
     this.release_date = release_date;
     this.overview = overview;
