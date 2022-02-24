@@ -15,13 +15,13 @@ app.get('/weather', async (request, response) =>{
   try{
     let lat =request.query.lat;  
     let lon =request.query.lon;
-    let url = `https://api.weatherbit.io/v2.0/forecast/daily?key=${process.env.WEATHER_API_KEY}&units=I&days=3&lat=${lat}&lon=${lon}`;
-    console.log("test:", url);
+    let url = `https://api.weatherbit.io/v2.0/forecast/daily?key=${process.env.WEATHER_API_KEY}&units=I&days=5&lat=${lat}&lon=${lon}`;
+    // console.log("test:", url);
   let weatherArray = await axios.get(url);
   //  console.log(weatherArray);
   
   const weatherArr = weatherArray.data.data.map(day => new Forecast(day));
-  console.log(lat,lon,weatherArr);
+  // console.log(lat,lon,weatherArr);
   response.send(weatherArr);
   } catch(error){
     response.status(500).send('Weather currently unavailable')
@@ -39,8 +39,12 @@ app.use((error, request, response, next) =>{
 
 class Forecast {
   constructor(day){
-    this.date = day.datetime,
-    this.description = day.weather.description
+    this.date = day.datetime;
+    this.description = day.weather.description;
+    // Add low and high temp
+    this.low = day.low_temp;
+    this.high = day.high_temp
+
   }
 }
 
