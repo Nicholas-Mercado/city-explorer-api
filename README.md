@@ -4,7 +4,7 @@
 
 **Author**: Nicholas Mercado
 
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.0.0
 
 ## Overview
 
@@ -48,6 +48,36 @@ Finish time:900
 
 Actual time needed to complete: 30
 
+### Name of feature: weather (live)
+
+Estimate of time needed to complete: 4 hr
+
+Start time: noon
+
+Finish time: 300
+
+Actual time needed to complete: 3 hrs
+
+### Name of feature: Movies
+
+Estimate of time needed to complete: 2 hr
+
+Start time: 300
+
+Finish time: 400
+
+Actual time needed to complete: 1 hrs
+
+### Name of feature: Deploy
+
+Estimate of time needed to complete: 1/2 hr
+
+Start time: 400
+
+Finish time: 430
+
+Actual time needed to complete: 1/2 hrs
+
 ## Credit and Collaborations
 
 [Node JS Docs](https://docs.npmjs.com/)
@@ -68,3 +98,5 @@ Matt Rangel
 ![WRRC 07](/lab07_WRRC.JPG)
 
 ![WRRC 08](/WRRC_lab_08.JPG)
+
+![WRRC 09](/wrrc_09.JPG)
