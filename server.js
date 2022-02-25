@@ -8,28 +8,19 @@ const app = express();
 let data = require('./data/weather.json');
 const cors = require('cors');
 const PORT = process.env.PORT || 3002;
-const axios = require('axios');
+
 app.use(cors());
 
 // import modules
 const getWeather = require('./weather.js');
-
+const getMovies = require('./movies.js');
 
 app.get('/weather', getWeather);
+app.get('/movies', getMovies);
 
 
 
 
-app.get('/movies', async(request, response) => {
-  let searchQuery = request.query.searchQuery;
-  let url = `https://api.themoviedb.org/3/search/movie/?api_key=${process.env.MOVIE_API_KEY}&query=${searchQuery}`;
-
-  let MovieObject = await axios.get(url);
-
-  let movieData = MovieObject.data.results.map(movie => new Movies(movie.title,movie.release_date, movie.overview));
-  response.send(movieData);
-}
-);
 
 
 
@@ -51,13 +42,7 @@ class Forecast {
   }
 }
 
-class Movies {
-  constructor(title, release_date, overview) {
-    this.title = title;
-    this.release_date = release_date;
-    this.overview = overview;
-  }
-}
+
 
 app.listen(PORT,() => console.log(`listen test on port ${PORT}`))
 
