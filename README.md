@@ -93,10 +93,10 @@ Brady Camp
 
 Matt Rangel
 
-![WRRC 06](/wrrc_response_cycle.JPG)
+![WRRC 06](/img/wrrc_response_cycle.JPG)
 
-![WRRC 07](/lab07_WRRC.JPG)
+![WRRC 07](/img/lab07_WRRC.JPG)
 
-![WRRC 08](/WRRC_lab_08.JPG)
+![WRRC 08](/img/WRRC_lab_08.JPG)
 
-![WRRC 09](/wrrc_09.JPG)
+![WRRC 09](/img/wrrc_09.JPG)
