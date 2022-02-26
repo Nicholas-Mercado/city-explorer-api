@@ -9,9 +9,9 @@ async function getWeather(latitude, longitude) {
   const url = `https://api.weatherbit.io/v2.0/forecast/daily?key=${process.env.WEATHER_API_KEY}&units=I&days=5&lat=${latitude}&lon=${longitude}`;
   
   if (cache[key] && (Date.now() - (cache[key].timestamp < 1000 * 60 * 60 * 24))) {
-    console.log('Cache hit');
+    console.log('Cache hit, We have Weather');
   } else {
-    console.log('Cache miss');
+    console.log('Cache miss, No Weather here!');
     cache[key] = {};
     cache[key].timestamp = Date.now();
     cache[key].data = axios.get(url)

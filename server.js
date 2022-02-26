@@ -15,7 +15,7 @@ app.use(cors());
 app.get('/weather', weatherHandler);
 
 //hot fix to get movies working while I debug the new weather*******
-const getMovies = require('./movies.js');
+const getMovies = require('./modules/movies.js');
 app.get('/movies', getMovies);
 // ********************************************
 
