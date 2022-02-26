@@ -78,6 +78,17 @@ Finish time: 430
 
 Actual time needed to complete: 1/2 hrs
 
+Name of feature: Performance
+
+Estimate of time needed to complete: 4h
+
+Start time: 2
+
+Finish time: 5
+
+Actual time needed to complete: 3
+
+
 ## Credit and Collaborations
 
 [Node JS Docs](https://docs.npmjs.com/)
@@ -100,3 +111,5 @@ Matt Rangel
 ![WRRC 08](/img/WRRC_lab_08.JPG)
 
 ![WRRC 09](/img/wrrc_09.JPG)
+
+![WRRC 10](/img/wrrc_10.jpg)
